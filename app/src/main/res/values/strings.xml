@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LogInSimulator</string>
+
+<!--    login fragment-->
+    <string name="til_user_name">Name</string>
+    <string name="til_password">Password</string>
+</resources>
