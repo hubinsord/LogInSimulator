@@ -4,4 +4,6 @@
 <!--    login fragment-->
     <string name="til_user_name">Name</string>
     <string name="til_password">Password</string>
+    <string name="required">*Required</string>
+    <string name="btn_log_in">Log in</string>
 </resources>

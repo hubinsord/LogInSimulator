@@ -6,4 +6,6 @@
 
     <string name="til_user_name">Nazwa</string>
     <string name="til_password">Hasło</string>
+    <string name="required">*Wymagane</string>
+    <string name="btn_log_in">Zaloguj</string>
 </resources>
