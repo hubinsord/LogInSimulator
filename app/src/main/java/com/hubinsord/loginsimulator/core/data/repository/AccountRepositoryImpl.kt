@@ -1,11 +1,15 @@
 package com.hubinsord.loginsimulator.core.data.repository
 
+import com.hubinsord.loginsimulator.app.datasource.local.AccountLocalDataSource
 import com.hubinsord.loginsimulator.core.data.model.Account
 import com.hubinsord.loginsimulator.core.domain.AccountRepository
+import javax.inject.Inject
 
-class AccountRepositoryImpl : AccountRepository{
+class AccountRepositoryImpl @Inject constructor(
+    private val accountLocalDataSource: AccountLocalDataSource
+) : AccountRepository{
 
     override fun getAccounts(): List<Account>{
-        return listOf(Account("nextapps", "rekr"))
+        return accountLocalDataSource.getAccounts()
     }
 }
