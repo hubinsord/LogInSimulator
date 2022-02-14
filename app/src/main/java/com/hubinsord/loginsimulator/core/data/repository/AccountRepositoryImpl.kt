@@ -16,4 +16,8 @@ class AccountRepositoryImpl @Inject constructor(
     override fun getAccountById(id: Int): Account {
         return accountLocalDataSource.getAccountById(id)
     }
+
+    override fun updateAccount(id: Int, account: Account) {
+        accountLocalDataSource.updateAccount(id, account)
+    }
 }

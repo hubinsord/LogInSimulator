@@ -6,4 +6,5 @@ interface AccountRepository {
 
     fun getAccounts() : List<Account>
     fun getAccountById(id: Int): Account
+    fun updateAccount(id: Int, account: Account)
 }

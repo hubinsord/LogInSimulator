@@ -38,7 +38,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
 
     private fun initListeners() {
         binding.btnLogIn.setOnClickListener {
-            viewModel.btnLogInClicked()
+            viewModel.onBtnLogInClicked()
         }
     }
 

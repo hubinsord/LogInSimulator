@@ -32,7 +32,7 @@ class LogInVM @Inject constructor(
     private val accounts = accountRepository.getAccounts()
     private var validatedAccountIndex: Int = -1
 
-    fun btnLogInClicked() {
+    fun onBtnLogInClicked() {
         validateUserName()
     }
 

@@ -6,11 +6,14 @@
     <string name="log_in_til_password">Password</string>
     <string name="log_in_required">*Required</string>
     <string name="log_in_btn_log_in">Log in</string>
-    <string name="dashboard_btn_log_out">Log out</string>
-    <string name="dashboard_tv_logging_info">Last log in:</string>
     <string name="fragment_log_in_short_user_name">User name length should have at least 6 characters</string>
     <string name="fragment_log_in_too_little_letters">user name must contain at least 4 letters</string>
     <string name="fragment_log_in_empty_user_name">user name must not be empty</string>
     <string name="fragment_log_in_user_doesnt_exist">No such user</string>
     <string name="fragment_log_in_incorrect_password">*incorrect password</string>
+
+    <!--    dashboard fragment-->
+    <string name="fragment_dashboard_first_login">Nice to meet you!</string>
+    <string name="dashboard_btn_log_out">Log out</string>
+    <string name="dashboard_tv_logging_info">Last log in: %1$s</string>
 </resources>

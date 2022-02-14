@@ -15,7 +15,8 @@
 
     <!--    dashboard fragment-->
     <string name="dashboard_btn_log_out">Wyloguj</string>
-    <string name="dashboard_tv_logging_info">Poprzednie logowanie:</string>
+    <string name="dashboard_tv_logging_info">Poprzednie logowanie: %1$s</string>
+    <string name="fragment_dashboard_first_login">Miło Cię poznać!</string>
 
 
 </resources>
