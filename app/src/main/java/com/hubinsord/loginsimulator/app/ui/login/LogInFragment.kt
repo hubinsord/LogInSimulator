@@ -53,7 +53,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
     private fun handleEvent(event: LogInVM.LogInEvent) {
         when (event) {
             is LogInVM.LogInEvent.NavigateToDashboard -> {
-                val action = LogInFragmentDirections.actionLogInFragmentToDashboardFragment()
+                val action = LogInFragmentDirections.actionLogInFragmentToDashboardFragment(event.id)
                 findNavController().navigate(action)
             }
             is LogInVM.LogInEvent.UserNameEmpty -> {

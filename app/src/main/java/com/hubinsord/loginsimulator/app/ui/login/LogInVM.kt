@@ -15,7 +15,7 @@ class LogInVM @Inject constructor(
 ) : ViewModel() {
 
     sealed class LogInEvent {
-        object NavigateToDashboard : LogInEvent()
+        data class NavigateToDashboard(val id: Int) : LogInEvent()
         object UserNameEmpty : LogInEvent()
         object UserNameTooShort : LogInEvent()
         object UserNameTooLittleLetters : LogInEvent()
@@ -30,7 +30,7 @@ class LogInVM @Inject constructor(
     val password = MutableLiveData<String>()
 
     private val accounts = accountRepository.getAccounts()
-    private lateinit var currentAccount: Account
+    private var validatedAccountIndex: Int = -1
 
     fun btnLogInClicked() {
         validateUserName()
@@ -58,20 +58,24 @@ class LogInVM @Inject constructor(
         accounts.forEach { account ->
             if (account.userName == username){
                 userExists = true
-                currentAccount = account
+                validatedAccountIndex = accounts.indexOf(account)
             }
         }
         return userExists
     }
 
     private fun validatePassword() {
-        if (currentAccount.password == password.value){
-            _event.postValue(Event(LogInEvent.NavigateToDashboard))
+        if (isIndexInListBound() && isPasswordCorrect()){
+            _event.postValue(Event(LogInEvent.NavigateToDashboard(validatedAccountIndex)))
         } else{
             _event.postValue(Event(LogInEvent.PasswordIncorrect))
 
         }
     }
+
+    private fun isIndexInListBound() = validatedAccountIndex > -1
+
+    private fun isPasswordCorrect() = accounts[validatedAccountIndex].password == password.value
 }
 
 

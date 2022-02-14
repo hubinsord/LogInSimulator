@@ -6,4 +6,5 @@ class AccountLocalDataSource {
     private var accounts = listOf<Account>(Account("nextapps", "rekr") )
 
     fun getAccounts(): List<Account> = accounts
+    fun getAccountById(id: Int) = accounts[id]
 }

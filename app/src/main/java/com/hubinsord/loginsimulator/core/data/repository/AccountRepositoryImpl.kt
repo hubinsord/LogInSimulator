@@ -12,4 +12,8 @@ class AccountRepositoryImpl @Inject constructor(
     override fun getAccounts(): List<Account>{
         return accountLocalDataSource.getAccounts()
     }
+
+    override fun getAccountById(id: Int): Account {
+        return accountLocalDataSource.getAccountById(id)
+    }
 }

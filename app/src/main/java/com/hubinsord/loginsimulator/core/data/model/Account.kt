@@ -5,6 +5,6 @@ import java.util.*
 data class Account(
     val userName: String,
     val password: String,
-    val lastLoginDate: Date? = null
+    val lastLoginDate: Long? = null
 ) {
 }

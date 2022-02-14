@@ -5,7 +5,9 @@
     tools:context=".app.ui.dashboard.DashboardFragment">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.hubinsord.loginsimulator.app.ui.dashboard.DashboardVM" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,6 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="@{viewModel.account.userName}"
             android:textColor="@color/grey_50"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
