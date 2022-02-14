@@ -1,6 +1,6 @@
-package com.hubinsord.loginsimulator.core.domain
+package com.hubinsord.loginsimulator.app.domain
 
-import com.hubinsord.loginsimulator.core.data.model.Account
+import com.hubinsord.loginsimulator.app.data.model.Account
 
 interface AccountRepository {
 

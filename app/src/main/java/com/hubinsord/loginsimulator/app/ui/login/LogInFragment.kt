@@ -50,25 +50,25 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
         }
     }
 
-    private fun handleEvent(event: LogInVM.LogInEvent) {
+    private fun handleEvent(event: CredentialInputValidator) {
         when (event) {
-            is LogInVM.LogInEvent.NavigateToDashboard -> {
+            is CredentialInputValidator.NavigateToDashboard -> {
                 val action = LogInFragmentDirections.actionLogInFragmentToDashboardFragment(event.id)
                 findNavController().navigate(action)
             }
-            is LogInVM.LogInEvent.UserNameEmpty -> {
+            is CredentialInputValidator.UserNameEmpty -> {
                 binding.tvUserNameValidation.text = resources.getString(R.string.fragment_log_in_empty_user_name)
             }
-            is LogInVM.LogInEvent.UserNameTooShort -> {
+            is CredentialInputValidator.UserNameTooShort -> {
                 binding.tvUserNameValidation.text = resources.getString(R.string.fragment_log_in_short_user_name)
             }
-            is LogInVM.LogInEvent.UserNameTooLittleLetters -> {
+            is CredentialInputValidator.UserNameTooLittleLetters -> {
                 binding.tvUserNameValidation.text = resources.getString(R.string.fragment_log_in_too_little_letters)
             }
-            is LogInVM.LogInEvent.UserNameNotExisting -> {
+            is CredentialInputValidator.UserNameNotExisting -> {
                 binding.tvUserNameValidation.text = resources.getString(R.string.fragment_log_in_user_doesnt_exist)
             }
-            is LogInVM.LogInEvent.PasswordIncorrect -> {
+            is CredentialInputValidator.PasswordIncorrect -> {
                 binding.tvPasswordValidation.text = getString(R.string.fragment_log_in_incorrect_password)
             }
         }

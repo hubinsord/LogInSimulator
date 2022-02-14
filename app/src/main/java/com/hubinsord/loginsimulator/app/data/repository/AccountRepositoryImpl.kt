@@ -1,8 +1,8 @@
-package com.hubinsord.loginsimulator.core.data.repository
+package com.hubinsord.loginsimulator.app.data.repository
 
-import com.hubinsord.loginsimulator.app.datasource.local.AccountLocalDataSource
-import com.hubinsord.loginsimulator.core.data.model.Account
-import com.hubinsord.loginsimulator.core.domain.AccountRepository
+import com.hubinsord.loginsimulator.app.data.datasource.local.AccountLocalDataSource
+import com.hubinsord.loginsimulator.app.data.model.Account
+import com.hubinsord.loginsimulator.app.domain.AccountRepository
 import javax.inject.Inject
 
 class AccountRepositoryImpl @Inject constructor(

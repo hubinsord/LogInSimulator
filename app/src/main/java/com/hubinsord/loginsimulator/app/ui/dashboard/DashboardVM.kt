@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.hubinsord.loginsimulator.core.data.repository.AccountRepositoryImpl
+import com.hubinsord.loginsimulator.app.data.repository.AccountRepositoryImpl
 import com.hubinsord.loginsimulator.core.wrapper.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.text.DateFormat
 import javax.inject.Inject
 
 @HiltViewModel
@@ -15,12 +14,6 @@ class DashboardVM @Inject constructor(
     private val repository: AccountRepositoryImpl,
     private val state: SavedStateHandle
 ) : ViewModel() {
-
-    sealed class DashboardEvent {
-        object LoggedInFirstTime : DashboardEvent()
-        data class LoggedIn(val date: String) : DashboardEvent()
-        object Logout : DashboardEvent()
-    }
 
     private val _event = MutableLiveData<Event<DashboardEvent>>()
     val event: LiveData<Event<DashboardEvent>> get() = _event
@@ -46,5 +39,3 @@ class DashboardVM @Inject constructor(
             _event.postValue(Event(DashboardEvent.LoggedIn(account!!.lastLoginDateFormatted!!)))
     }
 }
-
-//DateFormat.getDateTimeInstance().format(creationDate)

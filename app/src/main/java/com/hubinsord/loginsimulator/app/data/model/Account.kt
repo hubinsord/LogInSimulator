@@ -1,7 +1,6 @@
-package com.hubinsord.loginsimulator.core.data.model
+package com.hubinsord.loginsimulator.app.data.model
 
 import java.text.DateFormat
-import java.util.*
 
 data class Account(
     val userName: String,

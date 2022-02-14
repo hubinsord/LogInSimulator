@@ -33,9 +33,11 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
     private fun initViews() {
         viewModel.userLogged()
+
         binding.btnLogOut.setOnClickListener {
             viewModel.onButtonLogOutClicked()
         }
+
     }
 
     private fun initObservers() {
@@ -47,17 +49,18 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     }
 
     @SuppressLint("StringFormatInvalid")
-    private fun handleEvent(event: DashboardVM.DashboardEvent) {
+    private fun handleEvent(event: DashboardEvent) {
         when (event) {
-            is DashboardVM.DashboardEvent.LoggedInFirstTime -> {
+            is DashboardEvent.LoggedInFirstTime -> {
              binding.tvLoginInfo.text = getString(R.string.fragment_dashboard_first_login)
             }
-            is DashboardVM.DashboardEvent.LoggedIn -> {
+            is DashboardEvent.LoggedIn -> {
                 binding.tvLoginInfo.text = getString(R.string.dashboard_tv_logging_info, event.date)
             }
-            is DashboardVM.DashboardEvent.Logout -> {
+            is DashboardEvent.Logout -> {
                 val action = DashboardFragmentDirections.actionDashboardFragmentToLogInFragment()
                 findNavController().navigate(action)
+
             }
         }
     }

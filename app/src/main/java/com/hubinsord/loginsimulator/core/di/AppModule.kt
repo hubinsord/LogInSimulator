@@ -1,8 +1,8 @@
-package com.hubinsord.loginsimulator.app.di
+package com.hubinsord.loginsimulator.core.di
 
-import com.hubinsord.loginsimulator.app.datasource.local.AccountLocalDataSource
-import com.hubinsord.loginsimulator.core.data.repository.AccountRepositoryImpl
-import com.hubinsord.loginsimulator.core.domain.AccountRepository
+import com.hubinsord.loginsimulator.app.data.datasource.local.AccountLocalDataSource
+import com.hubinsord.loginsimulator.app.data.repository.AccountRepositoryImpl
+import com.hubinsord.loginsimulator.app.domain.AccountRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

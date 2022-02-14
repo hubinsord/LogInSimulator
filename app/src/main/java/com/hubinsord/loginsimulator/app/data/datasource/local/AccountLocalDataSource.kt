@@ -1,6 +1,6 @@
-package com.hubinsord.loginsimulator.app.datasource.local
+package com.hubinsord.loginsimulator.app.data.datasource.local
 
-import com.hubinsord.loginsimulator.core.data.model.Account
+import com.hubinsord.loginsimulator.app.data.model.Account
 
 class AccountLocalDataSource {
     private var accounts = mutableListOf<Account>(Account("nextapps", "rekr"))
