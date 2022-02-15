@@ -5,7 +5,7 @@
     <!--    login fragment-->
     <string name="log_in_til_user_name">Nazwa</string>
     <string name="log_in_til_password">Hasło</string>
-    <string name="log_in_required">*Wymagane</string>
+    <string name="fragment_log_in_default_validation">*Wymagane</string>
     <string name="log_in_btn_log_in">Zaloguj</string>
     <string name="fragment_log_in_empty_user_name">*wypełnij to pole</string>
     <string name="fragment_log_in_short_user_name">*nazwa użytkownika musi mieć przynajniej 6 znaków</string>

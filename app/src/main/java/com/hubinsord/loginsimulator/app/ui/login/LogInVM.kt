@@ -13,14 +13,21 @@ class LogInVM @Inject constructor(
     private val accountRepository: AccountRepository
 ) : ViewModel() {
 
-    private val _event = MutableLiveData<Event<CredentialInputValidator>>()
-    val event: LiveData<Event<CredentialInputValidator>> get() = _event
+    private val _event = MutableLiveData<Event<LoginEvent>>()
+    val event: LiveData<Event<LoginEvent>> get() = _event
+
+    private val _validationState = MutableLiveData<CredentialInputValidator>()
+    val validationState: LiveData<CredentialInputValidator> get() = _validationState
 
     val userName = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 
     private val accounts = accountRepository.getAccounts()
     private var validatedAccountIndex: Int = -1
+
+    fun onDefaultValidation() {
+
+    }
 
     fun onBtnLogInClicked() {
         validateUserName()
@@ -29,11 +36,13 @@ class LogInVM @Inject constructor(
     private fun validateUserName() {
         userName.value.let { username ->
             when {
-                username.isNullOrEmpty()|| username.isBlank()  -> _event.postValue(Event(CredentialInputValidator.UserNameEmpty))
-                username.length < 6 -> _event.postValue(Event(CredentialInputValidator.UserNameTooShort))
-                countLetters(username) < 4 -> _event.postValue(Event(CredentialInputValidator.UserNameTooLittleLetters))
-                userExists(username) -> validatePassword()
-                else -> _event.postValue(Event(CredentialInputValidator.UserNameNotExisting))
+                username.isNullOrEmpty()|| username.isBlank()  -> _validationState.postValue(CredentialInputValidator.UserNameEmpty)
+                username.length < 6 -> _validationState.postValue(CredentialInputValidator.UserNameTooShort)
+                countLetters(username) < 4 -> _validationState.postValue(CredentialInputValidator.UserNameTooLittleLetters)
+                userExists(username) -> {
+                    _validationState.postValue(CredentialInputValidator.UserNameDefault)
+                    validatePassword()}
+                else -> _validationState.postValue(CredentialInputValidator.UserNameNotExisting)
             }
         }
     }
@@ -56,16 +65,17 @@ class LogInVM @Inject constructor(
 
     private fun validatePassword() {
         if (isIndexInListBound() && isPasswordCorrect()){
-            _event.postValue(Event(CredentialInputValidator.NavigateToDashboard(validatedAccountIndex)))
+            _event.postValue(Event(LoginEvent.NavigateToDashboard(validatedAccountIndex)))
+            _validationState.postValue(CredentialInputValidator.PasswordDefault)
         } else{
-            _event.postValue(Event(CredentialInputValidator.PasswordIncorrect))
-
+            _validationState.postValue(CredentialInputValidator.PasswordIncorrect)
         }
     }
 
     private fun isIndexInListBound() = validatedAccountIndex > -1
 
     private fun isPasswordCorrect() = accounts[validatedAccountIndex].password == password.value
+
 }
 
 
