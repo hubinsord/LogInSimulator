@@ -27,8 +27,8 @@
             android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
             android:drawableStart="@drawable/state_ic_person"
             android:drawablePadding="8dp"
-            android:hint="@string/log_in_til_user_name"
             android:fontFamily="@font/ubuntu_regular"
+            android:hint="@string/log_in_til_user_name"
             android:inputType="textFilter"
             android:maxLength="20"
             android:padding="10dp"
@@ -36,12 +36,12 @@
             android:textColor="@color/grey_900"
             android:textColorHint="@color/grey_500"
             android:textSize="22sp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/tv_user_name_validation"/>
 
         <TextView
             android:id="@+id/tv_user_name_validation"
@@ -54,7 +54,9 @@
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_user_name" />
+            app:layout_constraintTop_toBottomOf="@id/et_user_name"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/et_password"/>
 
         <EditText
             android:id="@+id/et_password"
@@ -75,7 +77,8 @@
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_user_name_validation" />
+            app:layout_constraintTop_toBottomOf="@id/tv_user_name_validation"
+            app:layout_constraintBottom_toTopOf="@id/tv_password_validation"/>
 
         <TextView
             android:id="@+id/tv_password_validation"
@@ -88,7 +91,8 @@
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_password" />
+            app:layout_constraintTop_toBottomOf="@id/et_password"
+            app:layout_constraintBottom_toTopOf="@id/btn_log_in"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_log_in"
@@ -97,8 +101,8 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/grey_50"
-            android:padding="8dp"
             android:fontFamily="@font/ubuntu_regular"
+            android:padding="8dp"
             android:text="@string/log_in_btn_log_in"
             android:textAllCaps="false"
             android:textColor="@color/grey_900"
@@ -106,7 +110,8 @@
             app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_password_validation" />
+            app:layout_constraintTop_toBottomOf="@id/tv_password_validation"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
