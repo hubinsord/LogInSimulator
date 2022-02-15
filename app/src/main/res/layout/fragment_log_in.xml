@@ -36,6 +36,7 @@
             android:textColor="@color/grey_900"
             android:textColorHint="@color/grey_500"
             android:textSize="22sp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="0.4"

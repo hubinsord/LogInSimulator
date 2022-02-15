@@ -1,6 +1,7 @@
 package com.hubinsord.loginsimulator.app.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +50,7 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
             }
         }
         viewModel.validationState.observe(viewLifecycleOwner){
+            Log.d("Credential", "${it}")
             when(it){
                 is CredentialInputValidator.UserNameEmpty -> {
                     binding.tvUserNameValidation.text = resources.getString(R.string.fragment_log_in_empty_user_name)

@@ -32,12 +32,10 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     }
 
     private fun initViews() {
-        viewModel.userLogged()
-
+        viewModel.onUserLoggedIn()
         binding.btnLogOut.setOnClickListener {
             viewModel.onButtonLogOutClicked()
         }
-
     }
 
     private fun initObservers() {
@@ -52,7 +50,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
     private fun handleEvent(event: DashboardEvent) {
         when (event) {
             is DashboardEvent.LoggedInFirstTime -> {
-             binding.tvLoginInfo.text = getString(R.string.fragment_dashboard_first_login)
+                binding.tvLoginInfo.text = getString(R.string.fragment_dashboard_first_login)
             }
             is DashboardEvent.LoggedIn -> {
                 binding.tvLoginInfo.text = getString(R.string.dashboard_tv_logging_info, event.date)
@@ -60,7 +58,6 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
             is DashboardEvent.Logout -> {
                 val action = DashboardFragmentDirections.actionDashboardFragmentToLogInFragment()
                 findNavController().navigate(action)
-
             }
         }
     }

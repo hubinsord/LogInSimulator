@@ -32,10 +32,13 @@ class DashboardVM @Inject constructor(
         _event.postValue(Event(DashboardEvent.Logout))
     }
 
-    fun userLogged() {
-        if (account!!.lastLoginDate == null) {
-            _event.postValue(Event(DashboardEvent.LoggedInFirstTime))
-        } else
-            _event.postValue(Event(DashboardEvent.LoggedIn(account!!.lastLoginDateFormatted!!)))
+    fun onUserLoggedIn() {
+        account?.let {
+            if (it.lastLoginDate == null) {
+                _event.postValue(Event(DashboardEvent.LoggedInFirstTime))
+            } else
+                _event.postValue(Event(DashboardEvent.LoggedIn(it.lastLoginDateFormatted ?: "")))
+        }
+
     }
 }

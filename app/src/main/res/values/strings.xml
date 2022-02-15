@@ -4,12 +4,12 @@
 <!--    login fragment-->
     <string name="log_in_til_user_name">Name</string>
     <string name="log_in_til_password">Password</string>
-    <string name="fragment_log_in_default_validation">*Required</string>
+    <string name="fragment_log_in_default_validation">*required</string>
     <string name="log_in_btn_log_in">Log in</string>
-    <string name="fragment_log_in_short_user_name">User name length should have at least 6 characters</string>
-    <string name="fragment_log_in_too_little_letters">user name must contain at least 4 letters</string>
-    <string name="fragment_log_in_empty_user_name">user name must not be empty</string>
-    <string name="fragment_log_in_user_doesnt_exist">No such user</string>
+    <string name="fragment_log_in_short_user_name">*user name length should have at least 6 characters</string>
+    <string name="fragment_log_in_too_little_letters">*user name must contain at least 4 letters</string>
+    <string name="fragment_log_in_empty_user_name">*user name must not be empty</string>
+    <string name="fragment_log_in_user_doesnt_exist">*such user doesn\'t exist</string>
     <string name="fragment_log_in_incorrect_password">*incorrect password</string>
 
     <!--    dashboard fragment-->

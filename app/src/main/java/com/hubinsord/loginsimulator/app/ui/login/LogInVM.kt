@@ -1,5 +1,6 @@
 package com.hubinsord.loginsimulator.app.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +22,6 @@ class LogInVM @Inject constructor(
 
     val userName = MutableLiveData<String>()
     val password = MutableLiveData<String>()
-
     private val accounts = accountRepository.getAccounts()
     private var validatedAccountIndex: Int = -1
 
@@ -32,12 +32,19 @@ class LogInVM @Inject constructor(
     private fun validateUserName() {
         userName.value.let { username ->
             when {
-                username.isNullOrEmpty()|| username.isBlank()  -> _validationState.postValue(CredentialInputValidator.UserNameEmpty)
-                username.length < 6 -> _validationState.postValue(CredentialInputValidator.UserNameTooShort)
-                countLetters(username) < 4 -> _validationState.postValue(CredentialInputValidator.UserNameTooLittleLetters)
+                username.isNullOrEmpty() || username.isBlank() -> {
+                    _validationState.postValue(CredentialInputValidator.UserNameEmpty)
+                }
+                username.length < 6 -> {
+                    _validationState.postValue(CredentialInputValidator.UserNameTooShort)
+                }
+                countLetters(username) < 4 -> {
+                    _validationState.postValue(CredentialInputValidator.UserNameTooLittleLetters)
+                }
                 userExists(username) -> {
-                    _validationState.postValue(CredentialInputValidator.UserNameDefault)
-                    validatePassword()}
+                    _validationState.value = (CredentialInputValidator.UserNameDefault)
+                    validatePassword()
+                }
                 else -> _validationState.postValue(CredentialInputValidator.UserNameNotExisting)
             }
         }
@@ -51,7 +58,7 @@ class LogInVM @Inject constructor(
     private fun userExists(username: String): Boolean {
         var userExists = false
         accounts.forEach { account ->
-            if (account.userName == username){
+            if (account.userName == username) {
                 userExists = true
                 validatedAccountIndex = accounts.indexOf(account)
             }
@@ -60,10 +67,10 @@ class LogInVM @Inject constructor(
     }
 
     private fun validatePassword() {
-        if (isIndexInListBound() && isPasswordCorrect()){
+        if (isIndexInListBound() && isPasswordCorrect()) {
             _event.postValue(Event(LoginEvent.NavigateToDashboard(validatedAccountIndex)))
             _validationState.postValue(CredentialInputValidator.PasswordDefault)
-        } else{
+        } else {
             _validationState.postValue(CredentialInputValidator.PasswordIncorrect)
         }
     }

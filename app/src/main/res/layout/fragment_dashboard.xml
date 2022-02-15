@@ -17,11 +17,12 @@
         android:background="@color/blue_700">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cd_user_logo"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="8dp"
-            app:cardCornerRadius="50dp"
             android:backgroundTint="@color/white"
+            app:cardCornerRadius="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -34,6 +35,24 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="0dp"
+            android:layout_marginEnd="14dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ubuntu_regular"
+            android:gravity="end"
+            android:text="@{viewModel.account.userName}"
+            android:textColor="@color/grey_50"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/cd_user_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/cd_user_logo"
+            tools:text="user name"
+            tools:textColor="@color/grey_50"
+            tools:textSize="18sp" />
+
+        <TextView
             android:id="@+id/tv_login_info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -43,29 +62,12 @@
             android:padding="4dp"
             android:text="@string/dashboard_tv_logging_info"
             android:textColor="@color/grey_50"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_user_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_regular"
-            android:gravity="center"
-            android:text="@{viewModel.account.userName}"
-            android:textColor="@color/grey_50"
             android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_login_info"
-            tools:text="user name"
-            tools:textColor="@color/grey_50"
-            tools:textSize="32sp" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_user_name" />
 
-
-        <com.google.android.material.button.MaterialButton
+                <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_log_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,8 +81,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_login_info"
+            app:layout_constraintVertical_bias="0.35" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
