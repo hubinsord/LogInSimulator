@@ -37,7 +37,6 @@ class LogInFragment : Fragment(R.layout.fragment_log_in) {
     }
 
     private fun initViews() {
-        viewModel.onDefaultValidation()
         binding.btnLogIn.setOnClickListener {
             viewModel.onBtnLogInClicked()
         }
