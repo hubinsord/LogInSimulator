@@ -1,6 +1,10 @@
 package com.hubinsord.loginsimulator.app.data.model
 
 import java.text.DateFormat
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 data class Account(
     val userName: String,
@@ -8,5 +12,5 @@ data class Account(
     var lastLoginDate: Long? = null
 ) {
     val lastLoginDateFormatted: String?
-        get() = DateFormat.getDateTimeInstance().format(lastLoginDate)
-}
+        get() = DateFormat.getDateInstance(DateFormat.LONG).format(lastLoginDate)
+    }
